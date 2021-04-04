@@ -9,6 +9,11 @@
 </div>
 
 @code {
+	private string IconCssClass =>
+		Summary == "Cloudy" ? "cloud" :
+		Summary == "Rainy" ? "rain" :
+		"sun";
+
 	[Parameter]
 	public string Summary { get; set; }
 
@@ -17,9 +22,4 @@
 
 	[Parameter]
 	public DayOfWeek DayOfWeek { get; set; }
-
-	string IconCssClass =>
-		Summary == "Cloudy" ? "cloud" :
-		Summary == "Rainy" ? "rain" :
-		"sun";
 }
