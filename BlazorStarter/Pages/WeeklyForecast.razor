@@ -15,7 +15,16 @@
 		{
 			<WeatherDay TemperatureC="forecast.TemperatureC"
 						Summary="@forecast.Summary"
-						DayOfWeek="forecast.Date.DayOfWeek"></WeatherDay>
+						DayOfWeek="forecast.Date.DayOfWeek">
+				<CustomMessage>
+					@if (forecast.Summary == "Rainy")
+					{
+						<div class="alert alert-danger">
+							Tornado Warning!
+						</div>
+					}
+				</CustomMessage>
+			</WeatherDay>
 		}
 	}
 </div>

@@ -2,6 +2,7 @@
 	<div class="card-body text-center">
 		<span class="h1 oi oi-@IconCssClass"></span>
 		<h1 class="card-title">@TemperatureC C&deg;</h1>
+		@CustomMessage
 		<p class="card-text">
 			@Summary weather expected @DayOfWeek
 		</p>
@@ -22,4 +23,7 @@
 
 	[Parameter]
 	public DayOfWeek DayOfWeek { get; set; }
+
+	[Parameter]
+	public RenderFragment CustomMessage { get; set; }
 }
