@@ -19,7 +19,8 @@ namespace BlazorStarter.Data
 			{
 				Date = startDate.AddDays(index),
 				TemperatureC = rng.Next(-20, 55),
-				Summary = Summaries[rng.Next(Summaries.Length)]
+				Summary = Summaries[rng.Next(Summaries.Length)],
+				Selected = rng.Next(100) <= 20
 			}).ToArray());
 		}
 	}
