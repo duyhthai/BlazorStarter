@@ -8,7 +8,8 @@ namespace BlazorStarter.Data
 	{
 		private static readonly string[] Summaries = new[]
 		{
-			"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+			////"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+			"Cloudy", "Rainy", "Sunny"
 		};
 
 		public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
