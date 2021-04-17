@@ -16,7 +16,7 @@
 			<WeatherDay TemperatureC="forecast.TemperatureC"
 						Summary="@forecast.Summary"
 						DayOfWeek="forecast.Date.DayOfWeek"
-						OnSelected="HandleItemSelected"
+						OnClickCallback="HandleItemSelected"
 						Selected="forecast.Selected">
 				<CustomMessage>
 					@if (forecast.Summary == "Rainy")
@@ -31,16 +31,19 @@
 	}
 </div>
 
+<p>@message</p>
+
 @code {
 	private WeatherForecast[] forecasts;
+	private string message;
 
 	protected override async Task OnInitializedAsync()
 	{
 		forecasts = await WeatherService.GetForecastAsync(DateTime.Now);
 	}
 
-	private void HandleItemSelected()
+	private void HandleItemSelected(DayOfWeek selectedDay)
 	{
-
+		message = $"Selected day: {selectedDay}";
 	}
 }

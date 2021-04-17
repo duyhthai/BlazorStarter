@@ -1,4 +1,4 @@
-﻿<div class="card m-2 @SelectedCss" @onclick="HandleOnSelected">
+﻿<div class="card m-2 @SelectedCss" @onclick="HandleOnSelected" @onclick:preventDefault>
 	<div class="card-body text-center">
 		<span class="h1 oi oi-@IconCssClass"></span>
 		<h1 class="card-title">@TemperatureC C&deg;</h1>
@@ -30,13 +30,13 @@
 	public RenderFragment CustomMessage { get; set; }
 
 	[Parameter]
-	public EventCallback<DayOfWeek> OnSelected { get; set; }
+	public EventCallback<DayOfWeek> OnClickCallback { get; set; }
 
 	[Parameter]
 	public bool Selected { get; set; }
 
-	private void HandleOnSelected()
+	private async Task HandleOnSelected(MouseEventArgs e)
 	{
-		OnSelected.InvokeAsync(this.DayOfWeek);
+		await OnClickCallback.InvokeAsync(this.DayOfWeek);
 	}
 }
